@@ -6,7 +6,6 @@ describe('Object', () => {
   });
 });
 
-
 describe('Name', () => {
   it('sets the name property', () => {
     const pet = new Pet('Fido');
@@ -26,5 +25,21 @@ describe('growUp', () => {
     const pet = new Pet('Fido');
     pet.growUp();
     expect(pet.age).toEqual(1);
+    expect(pet.hunger).toEqual(5);
+    expect(pet.fitness).toEqual(7);
+  });
+});
+
+describe('Initial hunger', () => {
+  it('has a initial hunger of 0', () => {
+    const pet = new Pet('Fido');
+    expect(pet.hunger).toEqual(0);
+  });
+});
+
+describe('Initial fitness', () => {
+  it('has a initial fitness of 10', () => {
+    const pet = new Pet('Fido');
+    expect(pet.fitness).toEqual(10);
   });
 });
