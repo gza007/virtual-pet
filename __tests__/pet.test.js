@@ -14,7 +14,7 @@ describe('Name', () => {
 });
 
 describe('Initial Age', () => {
-  it('has a initial age of 0', () => {
+  it('has an initial age of 0', () => {
     const pet = new Pet('Fido');
     expect(pet.age).toEqual(0);
   });
@@ -31,25 +31,16 @@ describe('growUp', () => {
 });
 
 describe('Initial hunger', () => {
-  it('has a initial hunger of 0', () => {
+  it('has an initial hunger of 0', () => {
     const pet = new Pet('Fido');
     expect(pet.hunger).toEqual(0);
   });
 });
 
 describe('Initial fitness', () => {
-  it('has a initial fitness of 10', () => {
+  it('has an initial fitness of 10', () => {
     const pet = new Pet('Fido');
     expect(pet.fitness).toEqual(10);
-  });
-});
-
-describe('walk', () => {
-  it('increases fitness by 4', () => {
-    const pet = new Pet('fido');
-    pet.fitness = 4;
-    pet.walk();
-    expect(pet.fitness).toEqual(8);
   });
 });
 
@@ -74,5 +65,27 @@ describe('feed', () => {
     pet.hunger = 4;
     pet.feed();
     expect(pet.hunger).toEqual(1);
+  });
+});
+
+describe('checkUp', () => {
+  it('describes how the pet is feeling, based on hunger and fitness levels', () => {
+    const pet = new Pet('fido');
+    pet.fitness = 2;
+    pet.hunger = 1;
+    pet.checkUp();
+    expect('I need a walk');
+    pet.fitness = 5;
+    pet.hunger = 9;
+    pet.checkUp();
+    expect('I am hungry');
+    pet.fitness = 2;
+    pet.hunger = 6;
+    pet.checkUp();
+    expect('I am hungry AND I need a walk');
+    pet.fitness = 5;
+    pet.hunger = 1;
+    pet.checkUp();
+    expect('I feel great!');
   });
 });
