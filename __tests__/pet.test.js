@@ -54,10 +54,25 @@ describe('walk', () => {
 });
 
 describe('walk', () => {
-  it('increases fitness by to a maximum of 10', () => {
+  it('increases fitness level by 4, to a maximum of 10', () => {
     const pet = new Pet('fido');
     pet.fitness = 8;
     pet.walk();
     expect(pet.fitness).toEqual(10);
+    pet.fitness = 2;
+    pet.walk();
+    expect(pet.fitness).toEqual(6);
+  });
+});
+
+describe('feed', () => {
+  it('decreases hunger level by 3, to a minimum of 10', () => {
+    const pet = new Pet('fido');
+    pet.hunger = 2;
+    pet.feed();
+    expect(pet.hunger).toEqual(0);
+    pet.hunger = 4;
+    pet.feed();
+    expect(pet.hunger).toEqual(1);
   });
 });
