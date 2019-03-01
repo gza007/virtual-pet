@@ -57,7 +57,7 @@ describe('walk', () => {
 });
 
 describe('feed', () => {
-  it('decreases hunger level by 3, to a minimum of 10', () => {
+  it('decreases hunger level by 3, to a minimum of 0', () => {
     const pet = new Pet('fido');
     pet.hunger = 2;
     pet.feed();
@@ -87,5 +87,28 @@ describe('checkUp', () => {
     pet.hunger = 1;
     pet.checkUp();
     expect('I feel great!');
+  });
+});
+
+
+describe('isAlive', () => {
+  it('shows if pet is alive', () => {
+    const pet = new Pet('Fido');
+    pet.fitness = 1;
+    pet.hunger = 9;
+    pet.age = 29;
+    expect(pet.isAlive).toBe(true);    
+    pet.fitness = -2;
+    pet.hunger = 7;
+    pet.age = 15;
+    expect(pet.isAlive).toBe(false);
+    pet.fitness = 1;
+    pet.hunger = 15;
+    pet.age = 3;
+    expect(pet.isAlive).toBe(false);
+    pet.fitness = 10;
+    pet.hunger = 8;
+    pet.age = 31;
+    expect(pet.isAlive).toBe(false);
   });
 });
