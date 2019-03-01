@@ -103,7 +103,7 @@ describe('isAlive', () => {
     pet.age = 15;
     expect(pet.isAlive).toBe(false);
     pet.fitness = 1;
-    pet.hunger = 15;
+    pet.hunger = 10;
     pet.age = 3;
     expect(pet.isAlive).toBe(false);
     pet.fitness = 10;
