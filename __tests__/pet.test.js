@@ -108,3 +108,18 @@ describe('isAlive', () => {
     expect(pet.isAlive).toBe(false);
   });
 });
+
+describe('adoptChild', () => {
+  const parent = new Pet('Fido');
+  const child = new Pet('Nino');
+  it('creates child which inherits parents properties', () => {
+    parent.adoptChild(child);
+    expect(parent.children).toEqual([{
+      name: 'Nino', age: 0, hunger: 0, fitness: 10, children: [],
+    }]);
+  });
+  it('throws an error if the pet is not alive', () => {
+    parent.age = 30;
+    expect(() => parent.checkUp()).toThrow('Your pet is no longer alive :(');
+  });
+});
